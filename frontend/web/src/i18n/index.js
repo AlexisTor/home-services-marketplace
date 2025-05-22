@@ -1,12 +1,11 @@
-// frontend/web/src/i18n/index.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
-import enTranslation from './locales/en.json';
-import esTranslation from './locales/es.json';
-import ptTranslation from './locales/pt.json';
+import enTranslation from './i18n/locales/en.json';
+import esTranslation from './i18n/locales/es.json';
+import ptTranslation from './i18n/locales/pt.json';
 
 const resources = {
   en: {

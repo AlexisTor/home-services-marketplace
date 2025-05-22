@@ -1,10 +1,9 @@
-// frontend/web/src/i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 // Import translations
-import enTranslation from './locales/en.json';
-import esTranslation from './locales/es.json';
+import enTranslation from './i18n/locales/en.json';
+import esTranslation from './i18n/locales/es.json';
 
 const resources = {
   en: {

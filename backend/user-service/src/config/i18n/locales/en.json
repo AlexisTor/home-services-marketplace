@@ -1,4 +1,3 @@
-// frontend/web/src/i18n/locales/en.json
 {
   "app_name": "HomeServices",
   "home": "Home",
@@ -9,7 +8,6 @@
   "professionals": "Professionals",
   "profile": "Profile",
   "logout": "Logout",
-  
   "welcome_message": "Find trusted professionals for your home needs",
   "search_placeholder": "What service do you need?",
   "popular_categories": "Popular Categories",
@@ -18,7 +16,6 @@
   "step_2": "Get proposals",
   "step_3": "Hire a professional",
   "step_4": "Get the job done",
-  
   "email": "Email",
   "password": "Password",
   "confirm_password": "Confirm Password",
@@ -30,17 +27,14 @@
   "state": "State",
   "zip_code": "ZIP Code",
   "country": "Country",
-  
   "login_title": "Login to your account",
   "register_title": "Create an account",
   "forgot_password": "Forgot password?",
   "no_account": "Don't have an account?",
   "have_account": "Already have an account?",
-  
   "client": "Client",
   "professional": "Professional",
   "admin": "Admin",
-  
   "job_title": "Job Title",
   "job_description": "Job Description",
   "job_category": "Category",
@@ -50,7 +44,6 @@
   "job_attachments": "Attachments",
   "create_job": "Create Job",
   "job_created": "Job created successfully",
-  
   "plumbing": "Plumbing",
   "electrical": "Electrical",
   "carpentry": "Carpentry",
@@ -58,12 +51,10 @@
   "cleaning": "Cleaning",
   "construction": "Construction",
   "other": "Other",
-  
   "open": "Open",
   "in_progress": "In Progress",
   "completed": "Completed",
   "cancelled": "Cancelled",
-  
   "business_name": "Business Name",
   "professional_description": "Description",
   "services": "Services",
@@ -73,40 +64,33 @@
   "portfolio": "Portfolio",
   "availability": "Availability",
   "service_area": "Service Area",
-  
   "create_profile": "Create Professional Profile",
   "update_profile": "Update Profile",
   "profile_created": "Profile created successfully",
   "profile_updated": "Profile updated successfully",
-  
   "submit_proposal": "Submit Proposal",
   "proposal_price": "Price",
   "proposal_description": "Proposal Description",
   "estimated_duration": "Estimated Duration",
   "available_start_date": "Available Start Date",
   "proposal_submitted": "Proposal submitted successfully",
-  
   "accept_proposal": "Accept Proposal",
   "reject_proposal": "Reject Proposal",
   "proposal_accepted": "Proposal accepted",
-  
   "payment": "Payment",
   "payment_method": "Payment Method",
   "payment_amount": "Amount",
   "pay_now": "Pay Now",
   "payment_success": "Payment Successful",
   "payment_failed": "Payment Failed",
-  
   "reviews": "Reviews",
   "write_review": "Write a Review",
   "rating": "Rating",
   "review_text": "Review",
   "submit_review": "Submit Review",
-  
   "notifications": "Notifications",
   "no_notifications": "No notifications",
   "mark_as_read": "Mark as read",
-  
   "error": "Error",
   "server_error": "Server error. Please try again later.",
   "not_authorized": "Not authorized",

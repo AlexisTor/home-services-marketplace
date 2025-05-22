@@ -1,4 +1,3 @@
-// frontend/web/src/components/Footer.js
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

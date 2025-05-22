@@ -34,9 +34,21 @@ function App() {
         <Router>
           <Header />
           <main className="container mx-auto px-4 py-8">
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <PrivateRoute path="/jobs/create" component={CreateJob} />
+              <PrivateRoute path="/jobs/:id" component={JobDetails} />
+              <PrivateRoute path="/jobs" component={JobsList} />
+              <PrivateRoute path="/professionals/:id" component={ProfessionalProfile} />
+              <PrivateRoute path="/professionals" component={ProfessionalsList} />
+              <PrivateRoute path="/profile/professional/create" component={CreateProfessionalProfile} />
+              <PrivateRoute path="/profile" component={UserProfile} />
+              <PrivateRoute path="/payment/:jobId" component={PaymentPage} />
+              <PrivateRoute path="/payments/success" component={PaymentSuccess} />
+            </Switch>
           </main>
           <Footer />
         </Router>

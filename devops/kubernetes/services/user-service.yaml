@@ -1,0 +1,13 @@
+# devops/kubernetes/services/user-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+    name: user-service
+spec:
+    selector:
+        app: user-service
+    ports:
+        -
+            port: 3001
+            targetPort: 3001
+    type: ClusterIP

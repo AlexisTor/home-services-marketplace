@@ -1,0 +1,70 @@
+# File: home-services-marketplace/k8s/rabbitmq-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: home-services
+data:
+  rabbitmq.conf: |
+    loopback_users.guest = false
+    listeners.tcp.default = 5672
+    management.tcp.port = 15672
+    prometheus.tcp.port = 15692
+    management.load_definitions = /etc/rabbitmq/definitions.json
+  
+  definitions.json: |
+    {
+      "rabbit_version": "3.11.0",
+      "users": [
+        {
+          "name": "rabbitmq",
+          "password_hash": "rabbitmq",
+          "hashing_algorithm": "rabbit_password_hashing_sha256",
+          "tags": "administrator"
+        }
+      ],
+      "vhosts": [
+        {
+          "name": "/"
+        }
+      ],
+      "permissions": [
+        {
+          "user": "rabbitmq",
+          "vhost": "/",
+          "configure": ".*",
+          "write": ".*",
+          "read": ".*"
+        }
+      ],
+      "queues": [
+        {
+          "name": "email-notifications",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+        }
+      ],
+      "exchanges": [
+        {
+          "name": "notifications",
+          "vhost": "/",
+          "type": "direct",
+          "durable": true,
+          "auto_delete": false,
+          "internal": false,
+          "arguments": {}
+        }
+      ],
+      "bindings": [
+        {
+          "source": "notifications",
+          "vhost": "/",
+          "destination": "email-notifications",
+          "destination_type": "queue",
+          "routing_key": "email",
+          "arguments": {}
+        }
+      ]
+    }

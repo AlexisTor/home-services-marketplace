@@ -1,0 +1,11 @@
+# File: home-services-marketplace/k8s/notification-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notification-config
+  namespace: home-services
+data:
+  smtp-host: "smtp.example.com"
+  smtp-port: "587"
+  smtp-secure: "false"
+  email-from: "noreply@homeservices.com"

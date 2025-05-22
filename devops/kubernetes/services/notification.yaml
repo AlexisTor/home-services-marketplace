@@ -1,0 +1,14 @@
+# File: home-services-marketplace/k8s/notification-service-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  namespace: home-services
+  labels:
+    app: notification-service
+spec:
+  ports:
+  - port: 3005
+    targetPort: 3005
+  selector:
+    app: notification-service

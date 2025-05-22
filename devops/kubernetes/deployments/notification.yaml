@@ -1,0 +1,85 @@
+# File: home-services-marketplace/k8s/notification-service-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: home-services
+  labels:
+    app: notification-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+      - name: notification-service
+        image: ${DOCKER_REGISTRY}/notification-service:latest
+        ports:
+        - containerPort: 3005
+        env:
+        - name: RABBITMQ_URL
+          value: "amqp://$(RABBITMQ_USER):$(RABBITMQ_PASSWORD)@rabbitmq:5672"
+        - name: RABBITMQ_USER
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-credentials
+              key: rabbitmq-user
+        - name: RABBITMQ_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-credentials
+              key: rabbitmq-password
+        - name: SMTP_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: notification-config
+              key: smtp-host
+        - name: SMTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: notification-config
+              key: smtp-port
+        - name: SMTP_SECURE
+          valueFrom:
+            configMapKeyRef:
+              name: notification-config
+              key: smtp-secure
+        - name: SMTP_USER
+          valueFrom:
+            secretKeyRef:
+              name: smtp-credentials
+              key: smtp-user
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: smtp-credentials
+              key: smtp-password
+        - name: EMAIL_FROM
+          valueFrom:
+            configMapKeyRef:
+              name: notification-config
+              key: email-from
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3005
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3005
+          initialDelaySeconds: 15
+          periodSeconds: 10

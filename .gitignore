@@ -1,0 +1,54 @@
+# File: home-services-marketplace/.gitignore
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Kubernetes secrets
+k8s/*-secret.yaml
+
+# Docker environment files
+docker-compose.override.yml
+
+# Build output
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+
+# Database dumps
+*.dump
+*.sql
+*.sqlite
